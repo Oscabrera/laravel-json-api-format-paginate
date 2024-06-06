@@ -1,0 +1,40 @@
+{
+    "name": "oscabrera/laravel-json-api-format-paginate",
+    "description": "this package allows you to paginate resources using the JSON:API format",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/Oscabrera/laravel-json-api-format-paginate",
+    "authors": [
+        {
+            "name": "Oscar Cabrera",
+            "email": "oscabrera.dev@gmail.com",
+            "homepage": "https://github.com/Oscabrera"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Oscabrera\\JsonApiFormatPaginate\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9.0|^10.0|^11.0",
+        "spatie/laravel-json-api-paginate": "^1.14",
+        "spatie/laravel-query-builder": "^6.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+              "JsonApiFormatPaginateServiceProvider"
+            ]
+        }
+    },
+    "keywords": [
+        "laravel",
+        "paginate",
+        "json.api",
+        "format"
+    ]
+}
