@@ -2,18 +2,17 @@
 
 namespace Oscabrera\JsonApiFormatPaginate;
 
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class JsonApiFormatPaginateServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $builder = app(Builder::class);
-        $builder::macro('getFields', function () {
-            /** @var Builder $this */
-            $model = $this->getModel();
-            return array_merge($model->getFillable(), $model->getHidden()) ?? [];
+        $model = app(Model::class);
+        $model::macro('getFields', function () {
+            /** @var Model $this */
+            return array_merge($this->getFillable(), $this->getHidden()) ?? [];
         });
     }
 }
