@@ -40,13 +40,6 @@ export default {
                 ],
             },
             {
-                text: "Custom Exception",
-                items: [
-                    { text: "Introduction", link: "/custom-exception/introduction" },
-                    { text: "usage", link: "/custom-exception/usage" },
-                ],
-            },
-            {
                 text: "Code Quality",
                 items: [
                     { text: "Ensuring Code Quality", link: "/code-quality/code-quality" }
