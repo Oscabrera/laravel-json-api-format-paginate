@@ -69,3 +69,16 @@ php artisan vendor:publish --provider="Spatie\QueryBuilder\QueryBuilderServicePr
 
 This command will create a `config/query-builder.php` file in your Laravel application. You can edit this file to adjust
 the package settings.
+
+# In the Model:
+
+Is important use properties `$fillable` and `$hidden` in your model.
+
+in `$hidden` you have to add `id` in your model.
+
+```php
+protected $hidden = [
+        'id',
+    ];
+```
+In `$fillable` you should add all the properties you want to be returned by your model.

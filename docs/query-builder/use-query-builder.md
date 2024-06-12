@@ -13,3 +13,5 @@ $users = QueryBuilder::for(User::class)
     ->allowedSorts($fields)
     ->jsonPaginate();
 ```
+
+the method is called `getFields`, use properties `$fillable` and `$hidden` in your model.
