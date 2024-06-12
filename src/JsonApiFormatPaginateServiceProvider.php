@@ -21,7 +21,7 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/json-api-format' => config_path('json-api-format'),
+                __DIR__ . '/../config/json-api-format.php' => config_path('json-api-format.php'),
             ], 'config');
         }
 
@@ -49,7 +49,7 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
      */
     protected function registerMacro(): void
     {
-        $methodName = config('json-api-paginate.method_name', 'getFields');
+        $methodName = config('json-api-format.method_name', 'getFields');
         $macro = function () {
             /** @var EloquentBuilder $this */
             $model = $this->getModel();
