@@ -4,6 +4,9 @@ namespace Oscabrera\JsonApiFormatPaginate\Transformers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use ReflectionClass;
+use ReflectionException;
+use Str;
 
 /**
  * Class JsonApiPaginationTransformer
@@ -16,6 +19,7 @@ class EntityResourceTransformer extends JsonResource
      * Transform the resource collection into an array.
      *
      * @return array<int|string, mixed>
+     * @throws ReflectionException
      */
     public function toArray(Request $request): array
     {
@@ -29,19 +33,13 @@ class EntityResourceTransformer extends JsonResource
      * Retrieves the links for the resource.
      *
      * @return array{self: string} The links for the resource.
+     * @throws ReflectionException
      */
     private function getLinks(): array
     {
-        $modelName = strtolower(
-            strval(
-                preg_replace(
-                    '/([a-z])([A-Z])/',
-                    '$1-$2',
-                    class_basename($this->resource),
-                    -1
-                )
-            )
-        );
+        $name = (new ReflectionClass($this->resource))->getShortName();
+        $str = new Str();
+        $modelName = $str::plural($str::snake($name));
 
         return [
             'self' => route($modelName . '.read', ['id' => $this->resource->id]),
