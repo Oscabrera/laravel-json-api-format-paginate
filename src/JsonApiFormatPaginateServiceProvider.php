@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Oscabrera\JsonApiFormatPaginate;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
@@ -11,11 +13,9 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
     /**
      * Boot the application.
      *
-     * This method is called automatically when the application boots. It publishes the JSON API format configuration file
+     * This method is called automatically when the application boots.
+     *  It publishes the JSON API format configuration file
      * if the application is running in console mode. It also registers the macro for querying models.
-     *
-     * @access public
-     * @return void
      */
     public function boot(): void
     {
@@ -30,12 +30,10 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/json-api-format.php', 'json-api-format');
+        $this->mergeConfigFrom(__DIR__ . '/../config/json-api-format.php', 'json-api-format');
     }
 
     /**
@@ -43,9 +41,6 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
      *
      * This method registers a macro for querying models, allowing to retrieve all the
      * fields (fillable and hidden) of the model.
-     *
-     * @access protected
-     * @return void
      */
     protected function registerMacro(): void
     {
@@ -53,7 +48,7 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
         $macro = function () {
             /** @var EloquentBuilder $this */
             $model = $this->getModel();
-            return array_merge($model->getFillable(), $model->getHidden()) ?? [];
+            return array_merge($model->getFillable(), $model->getHidden());
         };
 
         EloquentBuilder::macro($methodName, $macro);
