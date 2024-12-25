@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Oscabrera\JsonApiFormatPaginate\Transformers;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Pagination\AbstractPaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use JsonSerializable;
 
 /**
  * Class JsonApiPaginationTransformer
@@ -16,11 +20,14 @@ class JsonApiPaginationTransformer extends ResourceCollection
     /**
      * Transform the resource collection into an array.
      *
-     * @return array<int|string, mixed>
+     * @return array<int|string, mixed>|Arrayable|JsonSerializable
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     * Suppress StaticAccess, because we are using JsonResource
      */
-    public function toArray(Request $request): array
+    public function toArray(Request $request): array|Arrayable|JsonSerializable
     {
-        if (!$this->resource instanceof AbstractPaginator) {
+        if (!$this->resource instanceof LengthAwarePaginator) {
             return parent::toArray($request);
         }
 
@@ -34,7 +41,6 @@ class JsonApiPaginationTransformer extends ResourceCollection
     /**
      * Returns an array of links for a paginated result.
      *
-     * @param AbstractPaginator $paginator
      * @return array{
      *     self: string|null,
      *     first: string|null,
@@ -43,7 +49,7 @@ class JsonApiPaginationTransformer extends ResourceCollection
      *     next: string|null
      * }
      */
-    private static function getLinks(AbstractPaginator $paginator): array
+    private static function getLinks(LengthAwarePaginator $paginator): array
     {
         return [
             'self' => $paginator->url($paginator->currentPage()),
@@ -57,7 +63,6 @@ class JsonApiPaginationTransformer extends ResourceCollection
     /**
      * Transform a paginated collection into a JSON:API formatted array.
      *
-     * @param AbstractPaginator $paginator
      * @return array{
      *     total: int|null,
      *     per_page: int|null,
@@ -68,7 +73,7 @@ class JsonApiPaginationTransformer extends ResourceCollection
      *     path: string
      *  }
      */
-    private static function getMeta(AbstractPaginator $paginator): array
+    private static function getMeta(LengthAwarePaginator $paginator): array
     {
         return [
             'total' => $paginator->total(),
@@ -77,7 +82,7 @@ class JsonApiPaginationTransformer extends ResourceCollection
             'from' => $paginator->firstItem(),
             'current_page' => $paginator->currentPage(),
             'last_page' => $paginator->lastPage(),
-            'path' => $paginator->path()
+            'path' => $paginator->path() ?? '',
         ];
     }
 }

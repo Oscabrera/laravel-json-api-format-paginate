@@ -2,6 +2,12 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/oscabrera/laravel-json-api-format-paginate.svg?style=flat-square)](https://packagist.org/packages/oscabrera/laravel-json-api-format-paginate)
 [![Total Downloads](https://img.shields.io/packagist/dt/oscabrera/laravel-json-api-format-paginate.svg?style=flat-square)](https://packagist.org/packages/oscabrera/laravel-json-api-format-paginate)
+
+[![VitePress](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/deploy.yml/badge.svg)](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/deploy.yml)
+[![PHPStan](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/phpstan.yml/badge.svg)](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/phpstan.yml)
+[![Pint](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/pint.yml/badge.svg)](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/pint.yml)
+[![PHPMD](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/phpmd.yml/badge.svg)](https://github.com/oscabrera/laravel-json-api-format-paginate/actions/workflows/phpmd.yml)
+
 [![built with Codeium](https://codeium.com/badges/main)](https://codeium.com)
 
 ![laravel-json-api-format-paginate](https://socialify.git.ci/Oscabrera/laravel-json-api-format-paginate/image?language=1&name=1&owner=1&pattern=Floating%20Cogs&theme=Auto)

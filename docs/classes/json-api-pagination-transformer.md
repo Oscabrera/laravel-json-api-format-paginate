@@ -21,9 +21,9 @@ class JsonApiPaginationTransformer extends ResourceCollection
     /**
      * Transform the resource collection into an array.
      *
-     * @return array<int|string, mixed>
+     * @return array|Arrayable|JsonSerializable
      */
-    public function toArray(Request $request): array
+    public function toArray(Request $request): array|Arrayable|JsonSerializable
     {
         if (!$this->resource instanceof AbstractPaginator) {
             return parent::toArray($request);
