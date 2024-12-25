@@ -11,8 +11,7 @@ class FileHandler
     public function __construct(
         protected string $extension,
         protected string $branch,
-    ) {
-    }
+    ) {}
 
     /**
      * Get the modified files git log.

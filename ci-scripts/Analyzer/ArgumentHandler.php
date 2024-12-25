@@ -11,8 +11,7 @@ class ArgumentHandler
      */
     public function __construct(
         protected array $args,
-    ) {
-    }
+    ) {}
 
     /**
      * Check if it should analyze all files.

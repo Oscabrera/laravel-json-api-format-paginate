@@ -79,7 +79,7 @@ class JsonApiPaginationTransformer extends ResourceCollection
             'from' => $paginator->firstItem(),
             'current_page' => $paginator->currentPage(),
             'last_page' => $paginator->lastPage(),
-            'path' => $paginator->path(),
+            'path' => $paginator->path() ?? '',
         ];
     }
 }
