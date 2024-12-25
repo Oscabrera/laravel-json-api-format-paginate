@@ -12,8 +12,7 @@ class CommandBuilder
     public function __construct(
         protected string $command,
         protected array $args = [],
-    ) {
-    }
+    ) {}
 
     /**
      * Build the command to execute.
