@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
 use ReflectionClass;
-use ReflectionException;
 
 /**
  * Class JsonApiPaginationTransformer
@@ -37,7 +36,8 @@ class EntityResourceTransformer extends JsonResource
      *
      * @return array<int|string, mixed>
      *
-     * @throws ReflectionException
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     *  Suppress UnusedFormalParameter, because we are using JsonResource
      */
     public function toArray(Request $request): array
     {

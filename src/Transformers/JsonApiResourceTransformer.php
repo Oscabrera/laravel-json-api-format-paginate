@@ -20,6 +20,9 @@ class JsonApiResourceTransformer extends JsonResource
      * Transform the resource collection into an array.
      *
      * @return array<int|string, mixed>|Arrayable|JsonSerializable
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     *  Suppress UnusedFormalParameter, because we are using JsonResource
      */
     public function toArray(Request $request): array|Arrayable|JsonSerializable
     {

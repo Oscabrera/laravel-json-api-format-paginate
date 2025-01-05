@@ -41,6 +41,9 @@ class JsonApiFormatPaginateServiceProvider extends ServiceProvider
      *
      * This method registers a macro for querying models, allowing to retrieve all the
      * fields (fillable and hidden) of the model.
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     *  Suppress StaticAccess, because we are using EloquentBuilder
      */
     protected function registerMacro(): void
     {
