@@ -3,8 +3,13 @@ name: PHPMD
 
 on:
   push:
-    branches:
-      - 'Feature/*'
+    branches-ignore:
+      - 'main'
+      - 'develop'
+  pull_request:
+    branches-ignore:
+      - 'main'
+      - 'develop'
 
 jobs:
   phpstan:
