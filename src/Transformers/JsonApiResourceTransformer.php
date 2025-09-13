@@ -28,7 +28,7 @@ class JsonApiResourceTransformer extends JsonResource
     {
         return [
             'id' => $this->id ?? null,
-            'type' => class_basename($this->resource) ?? 'Unknown',
+            'type' => class_basename($this->resource),
             'attributes' => $this->getAttributes(),
         ];
     }
