@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oscabrera\AnalyzerTool\CIScripts\Analyzer\Constants;
+namespace Oscabrera\JsonApiFormatPaginate\AnalyzerTool\CIScripts\Analyzer\Constants;
 
 class Icon
 {
