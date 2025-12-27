@@ -1,0 +1,22 @@
+# .github/actions/laravel-pint/action.yml
+name: laravel-pint
+description: Run Laravel Pint static analysis.
+outputs:
+  exit_code:
+    description: "Exit code from Laravel Pint execution"
+    value: ${{ steps.run_pint.outputs.exit_code }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Laravel Pint
+      id: run_pint
+      shell: bash
+      run: |-
+        mkdir -p analysis-logs
+        set +e
+        set -o pipefail
+        composer run pint 2>&1 | tee analysis-logs/laravel-pint.log
+        PINT_EXIT_CODE=${PIPESTATUS[0]}
+        echo "Laravel Pint completed with exit code: $PINT_EXIT_CODE"
+        echo "exit_code=$PINT_EXIT_CODE" >> $GITHUB_OUTPUT

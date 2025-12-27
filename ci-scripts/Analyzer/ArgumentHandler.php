@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oscabrera\AnalyzerTool\CIScripts\Analyzer;
+namespace Oscabrera\JsonApiFormatPaginate\AnalyzerTool\CIScripts\Analyzer;
 
 class ArgumentHandler
 {
