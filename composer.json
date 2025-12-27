@@ -46,7 +46,9 @@
     "scripts": {
         "phpstan": "php ci-scripts/PhpStan/run.php",
         "pint": "php ci-scripts/Pint/run.php",
-        "phpmd": "php ci-scripts/PhpMD/run.php"
+        "phpmd": "php ci-scripts/PhpMD/run.php",
+        "act": "@act-pr",
+        "act-pr": "act pull_request -P ubuntu-24.04=ghcr.io/catthehacker/ubuntu:act-24.04 --rm=false"
     },
     "config": {
         "allow-plugins": {
